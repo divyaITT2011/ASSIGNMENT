@@ -5,3 +5,10 @@ C:\Users\divya.singh\source\repos\FileOperations\FileOperations\obj\Debug\FileOp
 C:\Users\divya.singh\source\repos\FileOperations\FileOperations\obj\Debug\FileOperations.csproj.CoreCompileInputs.cache
 C:\Users\divya.singh\source\repos\FileOperations\FileOperations\obj\Debug\FileOperations.exe
 C:\Users\divya.singh\source\repos\FileOperations\FileOperations\obj\Debug\FileOperations.pdb
+C:\GIT\ASSIGNMENT\FileOperations\FileOperations\bin\Debug\FileOperations.exe.config
+C:\GIT\ASSIGNMENT\FileOperations\FileOperations\bin\Debug\FileOperations.exe
+C:\GIT\ASSIGNMENT\FileOperations\FileOperations\bin\Debug\FileOperations.pdb
+C:\GIT\ASSIGNMENT\FileOperations\FileOperations\obj\Debug\FileOperations.csprojAssemblyReference.cache
+C:\GIT\ASSIGNMENT\FileOperations\FileOperations\obj\Debug\FileOperations.csproj.CoreCompileInputs.cache
+C:\GIT\ASSIGNMENT\FileOperations\FileOperations\obj\Debug\FileOperations.exe
+C:\GIT\ASSIGNMENT\FileOperations\FileOperations\obj\Debug\FileOperations.pdb

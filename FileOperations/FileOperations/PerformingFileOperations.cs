@@ -18,16 +18,22 @@ namespace FileOperations
 
 			while (noOperations > 0)
 			{
+				Console.WriteLine("Enter 0 to Exit");
 				Console.WriteLine("Enter 1 to Count total number of lines");
-				Console.WriteLine("Enter 2 to Last line");
+				Console.WriteLine("Enter 2 to Read Last line");
 				Console.WriteLine("Enter 3 to Append file");
 				Console.WriteLine("Enter 4 to Read text from file");
 				Console.WriteLine("Enter 5 to Delete file");
+				
 
 				String Input = Console.ReadLine();
 				int input = Convert.ToInt32(Input);
 				switch (input)
 				{
+
+					case 0:
+						return;
+
 					case 1:
 						int counts = fileOperations.countLines();
 						Console.WriteLine("Total number of lines in file are:" + counts);
@@ -39,14 +45,11 @@ namespace FileOperations
 						break;
 
 					case 3:
-						Console.WriteLine("File is being appended..");
 						fileOperations.appendFile();
-						Console.WriteLine("File has been successfully appended..");
 						break;
 								
 					case 4:
-						fileOperations.createFileAndAddText();
-						Console.WriteLine("Text has been successfully read from the file..");
+						fileOperations.readText();
 						break;
 															
 					case 5:

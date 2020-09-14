@@ -9,15 +9,15 @@ namespace FileOperations
 {
 	class FileDescription
 	{
-        public const string Path = "C:/Users/divya.singh/Desktop/demo/testFile.txt";
+        public const string path = "./Data/Hello1.txt";
 
-		public void createFileAndAddText()
+		public void readText()
 		{
 			String line;
 			try
 			{
 				//Passing the file path and file name to the StreamReader constructor
-				StreamReader sr = new StreamReader(Path);
+				StreamReader sr = new StreamReader(path);
 
 				//Read the first line of text
 				line = sr.ReadLine();
@@ -39,35 +39,32 @@ namespace FileOperations
 			{
 				Console.WriteLine("Exception: " + e.Message);
 			}
-			finally
-			{
-				Console.WriteLine("Executing finally block.");
-			}
 		}
 
 		public void appendFile()
 		{
+			Console.WriteLine("File is being appended..");
 			// Adding this text in the file
 			try
 			{
-				using (StreamWriter sw = File.AppendText(Path))
+				using (StreamWriter sw = File.AppendText(path))
 				{
-					sw.WriteLine("This");
-					sw.WriteLine("is Extra");
-					sw.WriteLine("Text");
+					sw.WriteLine("\nThis is Extra Text");
 				}
 			}
 			catch (Exception e)
 			{
 				Console.WriteLine("Exception: " + e.Message);
 			}
-			
+
+			Console.WriteLine("File has been successfully appended..");
+
 		}
 
 		public int countLines()
 		{
 			int lines = 0;
-			using (TextReader reader = File.OpenText(Path))
+			using (TextReader reader = File.OpenText(path))
 			{
 				while (reader.ReadLine() != null)
 				{
@@ -79,16 +76,16 @@ namespace FileOperations
 
 		public string lastLine()
 		{
-			var data = File.ReadAllLines(Path);
+			var data = File.ReadAllLines(path);
 			string last = data[data.Length - 1];
 			return last;
 		}
 
 		public bool deleteFile()
 		{
-			if (File.Exists(Path))
+			if (File.Exists(path))
 			{
-				File.Delete(Path);
+				File.Delete(path);
 				return true;
 			}
 			return false;
