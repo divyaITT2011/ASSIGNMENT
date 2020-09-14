@@ -41,11 +41,6 @@ namespace Library
 			return bookPages;
 		}
 
-
-
-
-
-
 		public void setBookName(String bookName)
 		{
 			this.bookName = bookName;

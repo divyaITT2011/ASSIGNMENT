@@ -55,6 +55,7 @@ namespace Library
 						Console.WriteLine("Invalid operation..!");
 						break;
 				}
+
 				noOperations = noOperations - 1;
 			}
 		}

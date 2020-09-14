@@ -28,6 +28,7 @@ namespace Library
             {
                 this.price = price;
             }
+
             else
             {
                 Console.WriteLine("Invalid price");
