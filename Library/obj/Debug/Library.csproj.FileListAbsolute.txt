@@ -1,7 +1,0 @@
-C:\Users\divya.singh\source\repos\Library\Library\obj\Debug\Library.csprojAssemblyReference.cache
-C:\Users\divya.singh\source\repos\Library\Library\obj\Debug\Library.csproj.CoreCompileInputs.cache
-C:\Users\divya.singh\source\repos\Library\Library\bin\Debug\Library.exe.config
-C:\Users\divya.singh\source\repos\Library\Library\bin\Debug\Library.exe
-C:\Users\divya.singh\source\repos\Library\Library\bin\Debug\Library.pdb
-C:\Users\divya.singh\source\repos\Library\Library\obj\Debug\Library.exe
-C:\Users\divya.singh\source\repos\Library\Library\obj\Debug\Library.pdb
