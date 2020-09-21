@@ -1,0 +1,13 @@
+C:\Users\divya.singh\source\repos\automation\automation\bin\Debug\automation.exe.config
+C:\Users\divya.singh\source\repos\automation\automation\bin\Debug\automation.exe
+C:\Users\divya.singh\source\repos\automation\automation\bin\Debug\automation.pdb
+C:\Users\divya.singh\source\repos\automation\automation\bin\Debug\SeleniumExtras.WaitHelpers.dll
+C:\Users\divya.singh\source\repos\automation\automation\bin\Debug\WebDriver.dll
+C:\Users\divya.singh\source\repos\automation\automation\bin\Debug\WebDriver.Support.dll
+C:\Users\divya.singh\source\repos\automation\automation\bin\Debug\WebDriver.xml
+C:\Users\divya.singh\source\repos\automation\automation\bin\Debug\WebDriver.Support.xml
+C:\Users\divya.singh\source\repos\automation\automation\obj\Debug\automation.csprojAssemblyReference.cache
+C:\Users\divya.singh\source\repos\automation\automation\obj\Debug\automation.csproj.CoreCompileInputs.cache
+C:\Users\divya.singh\source\repos\automation\automation\obj\Debug\automation.csproj.CopyComplete
+C:\Users\divya.singh\source\repos\automation\automation\obj\Debug\automation.exe
+C:\Users\divya.singh\source\repos\automation\automation\obj\Debug\automation.pdb
