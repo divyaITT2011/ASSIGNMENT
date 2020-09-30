@@ -17,20 +17,20 @@ namespace automation
             // Create a driver instance for chromedriver
             IWebDriver driver = new ChromeDriver();
 
-            //Navigate to google page
-            driver.Navigate().GoToUrl("http:www.flipkart.com");
-
             //Maximize the window
             driver.Manage().Window.Maximize();
             Thread.Sleep(2000);
-                                   
+
+            //Navigate to google page
+            driver.Navigate().GoToUrl("http:www.flipkart.com");
+                                            
             //Find the Login field
-            IWebElement eleLogin = driver.FindElement(By.XPath("(//div[@class='dHGf8H'])[2]"));
-            IWebElement eleUN = driver.FindElement(By.XPath("//div[@class='_1XBjg- row']//form//input[@type='text']"));
+            IWebElement eleLogin = driver.FindElement(By.XPath("//a[contains(.,'Login')]"));
+            IWebElement eleUN = driver.FindElement(By.XPath("//span[contains(text(), 'Email')]"));
             eleUN.SendKeys("7498328220");
-            IWebElement elePW=driver.FindElement(By.XPath("//div[@class='_1XBjg- row']//form//input[@type='password']"));
+            IWebElement elePW=driver.FindElement(By.XPath("//span[contains(text(), 'Enter Password')]"));
             elePW.SendKeys("flipkart123");
-            IWebElement eleSubmit=driver.FindElement(By.XPath("//div[@class='_1XBjg- row']//form//button[@type='submit']"));
+            IWebElement eleSubmit=driver.FindElement(By.XPath("//button/span[contains(.,'Login')]"));
             eleSubmit.Click();
 
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(300));
@@ -39,9 +39,9 @@ namespace automation
             wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("//body/div[@id='container']/div/div[2]/div[1]")));
             
             //Adding 1st item in the wishlist
-            IWebElement electronics = driver.FindElement(By.XPath("//span[contains(text(),'Electronics')]"));
+            IWebElement electronicsSection = driver.FindElement(By.XPath("//span[contains(text(),'Electronics')]"));
             Thread.Sleep(2000);            
-            electronics.Click();        
+            electronicsSection.Click();        
             IWebElement eleVivo = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(By.XPath("//a[contains(text(),'Vivo')]")));
             // clicking for product's page
             eleVivo.Click();
@@ -50,9 +50,9 @@ namespace automation
             addToWishList1.Click();
 
             //Adding item 2nd in the wishlist
-            IWebElement eleMen = driver.FindElement(By.XPath("//span[contains(text(),'Men')]"));
+            IWebElement MenSection = driver.FindElement(By.XPath("//span[contains(text(),'Men')]"));
             Thread.Sleep(2000);
-            eleMen.Click();
+            MenSection.Click();
             IWebElement eleTrou = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(By.XPath("//a[contains(text(),'Casual Trousers')]")));
             // clicking for product's page
             eleTrou.Click();
@@ -61,9 +61,9 @@ namespace automation
             addToWishList2.Click();
 
             //Adding item 3rd in the wishlist
-            IWebElement eleBabyKids = driver.FindElement(By.XPath("//span[contains(text(),'Baby & Kids')]"));
+            IWebElement BabyKidsSection = driver.FindElement(By.XPath("//span[contains(text(),'Baby & Kids')]"));
             Thread.Sleep(2000);
-            eleBabyKids.Click();
+            BabyKidsSection.Click();
             IWebElement eleSoftToys = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(By.XPath("//a[contains(text(),'Soft Toys')]")));
             // clicking for product's page
             eleSoftToys.Click();
@@ -72,9 +72,11 @@ namespace automation
             addToWishList3.Click();
 
             //Moving on to the user and checking the wishlisted elements count
-            IWebElement user = driver.FindElement(By.XPath("//body/div/div/div/div/div/div[3]/div[1]"));
-            String Check = driver.FindElement(By.XPath("//div[@id='container']//div//div//div//div//div//div//div//div//div//div//div[contains(text(),'2')]")).Text;
-            if (Check == "3")
+            IWebElement user = driver.FindElement(By.XPath("//input[contains(@title, 'Search for products')]/ancestor::form/../following-sibling::div[1]"));
+            String Check = driver.FindElement(By.XPath("//div[contains(text(),'Wishlist')]/following-sibling::*")).Text;
+            int check = Int16.Parse(Check);
+
+            if (check >= 3)
             {
                 Console.WriteLine("Correct number of Items added");
             }
