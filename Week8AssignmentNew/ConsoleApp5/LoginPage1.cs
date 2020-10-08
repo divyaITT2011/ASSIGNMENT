@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ConsoleApp5;
 using OpenQA.Selenium;
 
 namespace Automation2
@@ -20,25 +21,20 @@ namespace Automation2
         public LoginPage1(IWebDriver d)
         {
             driver = d;
-            
-        }
 
+        }
         public void SetUserName()
         {
             driver.FindElement(ElementUserName).SendKeys("7498328220");
         }
-
         public void SetPassword()
         {
             driver.FindElement(ElementPassword).SendKeys("flipkart123");
         }
-
         public void ClickSubmit()
         {
             driver.FindElement(ElementSubmit).Click();
         }
-
-
     }
 }
 
