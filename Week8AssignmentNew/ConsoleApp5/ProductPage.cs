@@ -7,11 +7,11 @@ using OpenQA.Selenium;
 
 namespace ConsoleApp5
 {
-    class Cart1
+    class ProductPage
     {
         IWebDriver driver;
-        By AddToCart = By.XPath("//button[text()='ADD TO CART']");
-        public Cart1(IWebDriver d)
+        private By addToCart = By.XPath("//button[text()='ADD TO CART']");
+        public ProductPage(IWebDriver d)
         {
             driver = d;
         }
@@ -21,7 +21,7 @@ namespace ConsoleApp5
             java.lang.Thread.sleep(1500);
             try
             {
-                driver.FindElement(AddToCart).Click();
+                driver.FindElement(addToCart).Click();
             }
             catch (Exception e)
             {

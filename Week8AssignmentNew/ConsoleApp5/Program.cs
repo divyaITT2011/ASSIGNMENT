@@ -25,7 +25,7 @@ namespace Automation2
             // Create a driver instance for chromedriver
             IWebDriver driver = new FirefoxDriver();
 
-            ScreenshotExtentReport screenshotExtentReport = new ScreenshotExtentReport();
+            ExtentReport screenshotExtentReport = new ExtentReport();
 
             //Maximize the window
             driver.Manage().Window.Maximize();
@@ -66,7 +66,7 @@ namespace Automation2
 
             //Applying the filter for availability
             java.lang.Thread.sleep(2000);
-            HomePage.SettingAvailibilityFilter();
+            HomePage.ApplyingFilters();
             LoadingHeader();
             java.lang.Thread.sleep(2000);
             HomePage.SettingExcludeOutOfStockFilter();

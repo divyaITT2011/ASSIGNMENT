@@ -12,7 +12,7 @@ using sun.nio.ch;
 namespace ConsoleApp5
 {
     [TestClass]
-    public class ScreenshotExtentReport : Base
+    public class ExtentReport : Base
     {
         protected ExtentReports extent;
         public static ExtentTest test;

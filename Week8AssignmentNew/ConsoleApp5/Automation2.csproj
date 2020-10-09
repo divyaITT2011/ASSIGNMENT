@@ -553,9 +553,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ScreenshotExtentReport.cs" />
+    <Compile Include="ExtentReport.cs" />
     <Compile Include="Base.cs" />
-    <Compile Include="Cart1.cs" />
+    <Compile Include="ProductPage.cs" />
     <Compile Include="CapturingAllScreenshots.cs" />
     <Compile Include="HomePage1.cs" />
     <Compile Include="LoginPage1.cs" />

@@ -20,7 +20,7 @@ namespace ConsoleApp5
         [OneTimeSetUp]
         protected void Setup()
         {
-            ScreenshotExtentReport extentReports = new ScreenshotExtentReport();
+            ExtentReport extentReports = new ExtentReport();
             extentReport = extentReports.SetUpExtentReport();
         }
 
@@ -30,21 +30,12 @@ namespace ConsoleApp5
         {
             extentReport.Flush();
         }
-
-        // Setup of browser
-        [SetUp]
-        //public void BeforeTest()
-        //{
-        //    Coypu.DriverFactory driverFactory = new DriverFactory();
-        //    driver = driverFactory.GetWebDriver((Browser)Browser.Firefox);
-        //    testStatus = extentReport.CreateTest(TestContext.CurrentContext.Test.Name);
-        //}
-
+                
         // Tear down after the test is executed.
         [TearDown]
         public void AfterTest()
         {
-            ScreenshotExtentReport tearDown = new ScreenshotExtentReport();
+            ExtentReport tearDown = new ExtentReport();
             tearDown.StatusAfterTest(testStatus, extentReport, driver);
         }
 

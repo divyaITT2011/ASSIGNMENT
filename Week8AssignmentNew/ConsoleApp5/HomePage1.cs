@@ -21,65 +21,58 @@ namespace Automation2
         }
 
         //Find the HomePage field
-        By textBox = By.XPath("//input[@title='Search for products, brands and more']");
+        private By textBox = By.XPath("//input[@title='Search for products, brands and more']");
 
         //Setting the minimun range
-        By minDropdownElement = By.XPath("//span[text()='Price']/ancestor::section/*/following-sibling::*//select[contains(.,'Min')]");
+        private By minDropdownElement = By.XPath("//span[text()='Price']/ancestor::section/*/following-sibling::*//select[contains(.,'Min')]");
 
         //Setting header
-        By header = By.XPath("//body/div[@id='container']/div/div[1]/div[1]");
-        By maxDropdownElement = By.XPath("//option[@value='Min']/../../following-sibling::div[not(contains(.,'to'))]/select");
+        private By header = By.XPath("//body/div[@id='container']/div/div[1]/div[1]");
+        private By maxDropdownElement = By.XPath("//option[@value='Min']/../../following-sibling::div[not(contains(.,'to'))]/select");
 
         //Setting filter
-        By availability = By.XPath("//div[contains(text(),'Availability')]");
-        By excludeOutOfStockFilter = By.XPath("//div[contains(text(),'Exclude')]");
+        private By availability = By.XPath("//div[contains(text(),'Availability')]");
+        private By excludeOutOfStockFilter = By.XPath("//div[contains(text(),'Exclude')]");
 
         //Scrolling through the pages
-        By pageNumber = By.XPath("//div[@class='_2zg3yZ']/span[contains(text(),'Page')]");
+        private By pageNumber = By.XPath("//div[@class='_2zg3yZ']/span[contains(text(),'Page')]");
 
         //Identifying the product
-        String productName = "(//a[contains(@href,'apple-iphone')]/div[2]/div/div[contains(text(),'Apple iPhone')])[{0}]";
+        private String productName = "(//a[contains(@href,'apple-iphone')]/div[2]/div/div[contains(text(),'Apple iPhone')])[{0}]";
 
         //Identifying the product price
-        String productPrice = "(//a[contains(@href,'apple-iphone')]/div[2]/div[2]/div[1]/div/div[1][contains(text(),'₹')])[{0}]";
+        private String productPrice = "(//a[contains(@href,'apple-iphone')]/div[2]/div[2]/div[1]/div/div[1][contains(text(),'₹')])[{0}]";
 
         //Storing the count of product displayed for a search
-        By searchResultCount = By.XPath("//span[contains(text(),'results')][1]");
+        private By searchResultCount = By.XPath("//span[contains(text(),'results')][1]");
 
         //Displaying the count of the matching items present
-        By totalItems = By.XPath("//span[contains(text(),'Showing')]");
+        private By totalItems = By.XPath("//span[contains(text(),'Showing')]");
 
         //Item unavailable
-        String unavailableItem = "(//img[contains(@alt,'Apple')])[{0}]/ancestor::div/following-sibling::div/span";
+        private String unavailableItem = "(//img[contains(@alt,'Apple')])[{0}]/ancestor::div/following-sibling::div/span";
 
         //Available item
-        String availableitem = "(//img[contains(@alt,'Apple')])[{0}]";
-
-        //List of all the products 
-        //By TextProd = By.XPath("(//a[contains(@href,'apple-iphone-6')]/div[2]/div/div[1][contains(text(),'Apple iPhone ')])[j]");
+        private String availableitem = "(//img[contains(@alt,'Apple')])[{0}]";
 
         //Search result 
-        By searchResult = By.XPath("//div[contains(text(),'My Cart')]");
+        private By searchResult = By.XPath("//div[contains(text(),'My Cart')]");
 
         //Next button
-        By nextButton = By.XPath("//span[contains(text(),'Next')]");
+        private By nextButton = By.XPath("//span[contains(text(),'Next')]");
 
         //Total cost of the products
-        By totalCost = By.XPath("//span[contains(text(),'Price details')]/../div/div/span[contains(text(),'₹')]");
+        private By totalCost = By.XPath("//span[contains(text(),'Price details')]/../div/div/span[contains(text(),'₹')]");
 
         //Display the product name        
-        string addedProductsName = "(//div[contains(@class,'PaJLWc')])[{0}]/div[1]/div[1]/a[contains(text(),'Apple iPhone')]";
+        private string addedProductsName = "(//div[contains(@class,'PaJLWc')])[{0}]/div[1]/div[1]/a[contains(text(),'Apple iPhone')]";
 
         //Display the product cost
-        string addedProductsCost = "((//div[contains(@class,'PaJLWc')])[{0}]/div[1]/span[contains(text(),'₹')])";
+        private string addedProductsCost = "((//div[contains(@class,'PaJLWc')])[{0}]/div[1]/span[contains(text(),'₹')])";
 
-        String nameOfProduct;
-        String priceOfProduct;
-        int itemPrice;
-        string NumberOfItems;
-        Boolean boolResult;
+        string numberOfItemsOnPage;
         public int itemsCount;
-
+              
         public void EnterSearchItem()
         {
             Thread.Sleep(2000);
@@ -99,15 +92,11 @@ namespace Automation2
             MaximunValue.SelectByValue("50000+");
         }
 
-        public void SettingAvailibilityFilter()
+        public void ApplyingFilters()
         {
-            java.lang.Thread.sleep(1000);
-            driver.FindElement(availability).Click();
-        }
-
-        public void SettingExcludeOutOfStockFilter()
-        {
-            java.lang.Thread.sleep(1000);
+            java.lang.Thread.sleep(1000 );
+            driver.FindElement(availability).Click();                     
+            java.lang.Thread.sleep(2000);
             driver.FindElement(excludeOutOfStockFilter).Click();
         }
 
@@ -137,10 +126,10 @@ namespace Automation2
 
         public int DiplayTotalItemsPresent()
         {
-            String TotalItems = driver.FindElement(this.totalItems).Text;
-            String[] Totalitems = TotalItems.Split(' ');
-            int NumberOfItemsOnPage = Int16.Parse(Totalitems[3]);
-            return (NumberOfItemsOnPage);
+            String showingTotalItems = driver.FindElement(this.totalItems).Text;
+            String[] totalitemsAvailable = showingTotalItems.Split(' ');
+            int numberOfItemsAvailableOnPage = Int16.Parse(totalitemsAvailable[3]);
+            return (numberOfItemsAvailableOnPage);
         }
         public bool ItemUnavailable(int index)
         {
@@ -157,17 +146,14 @@ namespace Automation2
         {
             int pageCounter = 1;
             int ppageCount = GetNumberOfPages();            
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
             java.lang.Thread.sleep(1000);
-            Cart1 cart = new Cart1(driver);
+            ProductPage cart = new ProductPage(driver);
             while (pageCounter <= ppageCount)
             {
                 int itemCount = driver.FindElements(By.XPath("(//img[contains(@alt,'Apple')])")).Count;
-                //int iitemsCount = DiplayTotalItemsPresent();
-                for (int index = 1; index <= itemCount; index++)
+               for (int index = 1; index <= itemCount; index++)
                 {
                     bool itemUnavailable = ItemUnavailable(index);
-                    //bool itemAvailable = driver.FindElement(By.XPath(string.Format(UnavailableItem, index))).Displaye
                     if (!itemUnavailable) // if item available
                     {
                         //add to cart.
@@ -232,17 +218,16 @@ namespace Automation2
         //Verify Count of the product
         public void FinalCountOfProduct()
         {
-            string Result = FinalSearchResult();
-            char[] separator = { ' ' };
-            String[] DisplayOfNumberOfItems = Result.Split(separator);
-            NumberOfItems = DisplayOfNumberOfItems[2];
+            string searchResult = FinalSearchResult();            
+            String[] displayOfNumberOfItems = searchResult.Split(' ');
+            numberOfItemsOnPage = displayOfNumberOfItems[2];
             //int TotalNoOfItems = java.lang.Integer.parseInt(NumberOfItems);
-            Console.WriteLine("Total Number Of Products Are" + NumberOfItems);
+            Console.WriteLine("Total Number Of Products Are" + numberOfItemsOnPage);
         }
         //Displaying Products And Their Costs
         public void PrintProductNameAndPrice()
         {
-            int numberOfItems = Int16.Parse(NumberOfItems.Substring(1, 2));
+            int numberOfItems = Int16.Parse(numberOfItemsOnPage.Substring(1, 2));
             string displayProductName;
             string displayProductCost;
             for (int index = 1; index <= numberOfItems; index++)
