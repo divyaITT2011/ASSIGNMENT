@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30611.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomateGmail", "AutomateGmail\AutomateGmail.csproj", "{1611C463-1399-452B-B2A6-827311FE0282}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{35014105-3496-41A8-A090-890DB40049BF}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\Downloads\chromedriver.exe = ..\..\..\Downloads\chromedriver.exe
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1611C463-1399-452B-B2A6-827311FE0282}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1611C463-1399-452B-B2A6-827311FE0282}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1611C463-1399-452B-B2A6-827311FE0282}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1611C463-1399-452B-B2A6-827311FE0282}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7D4532C4-8DFE-4C91-BBD1-6C55AE5EFC27}
+	EndGlobalSection
+EndGlobal
